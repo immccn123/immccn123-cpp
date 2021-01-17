@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+
+# I don't want to save
+*.cxx

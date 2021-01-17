@@ -1,32 +1,23 @@
 #include <iostream>
-#include <sstream>
 using namespace std;
-string its(int n){
-	ostringstream stream;
-	stream << n;
-	return stream.str();
-}
-int main(){
-	int a, i,count = 0;
-	char x;
-	std::string n;
-	cin >> i >> a;
-	while(i <= a){
-		n += its(i);
-		i++;
-	}
-	i = 0;
-	while(i < n.length()){
-		if (n[i] == '2'){
-			count++;
-		}
-		i++;
+int main()
+{
+	int st, ed;
+	int tmp;
+	int count = 0;
+	cin >> st >> ed;
+	for(int a = st;a <= ed;a++)
+	{
+		tmp = a;
+		if(tmp / 10000 == 2) count++;
+		tmp = a % 10000;
+		if(tmp / 1000 == 2) count++;
+		tmp = a % 1000;
+		if(tmp / 100 == 2) count++;
+		tmp = a % 100; 
+		if(tmp / 10 == 2) count++;
+		if(a % 10 == 2) count++;
 	}
 	cout << count;
 	return 0;
 }
-/*
-P1179的		提交记录
-编号		分数	状态	测试点
-
-*/
