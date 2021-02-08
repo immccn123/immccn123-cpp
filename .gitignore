@@ -36,3 +36,7 @@
 
 # Conped FIles
 /LuoguOJ/conped
+.vscode/
+conped/
+CMakeLists.txt
+main.cpp
