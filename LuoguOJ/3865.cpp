@@ -2,12 +2,12 @@
 #include <algorithm>
 #include <cstdio>
 using namespace std;
-int data[100002] = {0};
-int st[100002][50] = {0};
-int logg[100002] = {-1};
+int data[100002] = {};
+int st[100002][50] = {};
+long logg[100002] = {-1};
 int main()
 {
-	freopen("3865.in","r",stdin);
+	// freopen("3865.in","r",stdin);
 	int n, m;
 	scanf("%d%d",&m,&n);
 	for(int i = 1;i <= n;i++)
@@ -22,7 +22,7 @@ int main()
 		st[j][i] = max(st[j][i - 1],st[j + (1 << (i - 1))][i - 1]);
 	}
 	int l = 0, r = 0;
-	while(m--)
+	while(m--) 
     {
         scanf("%d%d",&l,&r);
         int len = logg[r - l + 1];
