@@ -1,0 +1,65 @@
+#include<stdio.h>
+int a[11][11];
+int n,m,i,j,k,s;
+int main()
+{
+	while(scanf("%d%d",&n,&m)!=EOF)
+	{
+		for(i=0;i<9;i++)
+		{
+			for(j=0;j<9;j++)
+			{
+				a[i][j]=0;
+			}
+		}
+		k=0;i=0;j=0;s=1;
+		while(1)
+		{
+			while(j<m-k)
+			{
+				a[i][j++]=s++;
+			}
+			j--;i++;
+			if(s>m*n)
+			{
+			break;
+			}
+			while(i<n-k)
+			{
+				a[i++][j]=s++;
+			}
+			i--;j--;
+			if(s>m*n)
+			{
+			break;
+			}
+			while(j>=k)
+			{
+				a[i][j--]=s++;
+			}
+			j++;i--;
+			if(s>m*n)
+			{
+			break;
+			}
+			while(i>=1+k)
+			{
+				a[i--][j]=s++;
+			}
+			k++;i=k;j=k;
+			if(s>m*n)
+			{
+			break;
+			}
+		}
+		for(i=0;i<n;i++)
+		{
+			for(j=0;j<m-1;j++)
+			{
+				printf("%2d ",a[i][j]);
+			}
+			printf("%2d\n",a[i][m-1]);
+		}
+	}
+	return 0;
+}
