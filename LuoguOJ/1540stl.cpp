@@ -1,17 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
 queue<long long> mem;
-bool searchQueue(queue<long long> q, long long searchValue) {
-    int pos = 0;
-    bool searchFlag = false;
-    for(int i=0; i<q.size(); ++i) {
-        if(q.front() == searchValue && !searchFlag) {
+bool searchQueue(queue<long long> q, long long searchValue)
+{
+    for(int i=0; i<q.size(); ++i)
+	{
+        if(q.front() == searchValue)
+		{
             return true;
         }
-        else {
+        else
+		{
             q.push(q.front());
             q.pop();
-            pos++;
         }
     }
     return false;
