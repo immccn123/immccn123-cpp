@@ -1,65 +1,26 @@
-#include<stdio.h>
-int a[11][11];
-int n,m,i,j,k,s;
-int main()
-{
-	while(scanf("%d%d",&n,&m)!=EOF)
-	{
-		for(i=0;i<9;i++)
-		{
-			for(j=0;j<9;j++)
-			{
-				a[i][j]=0;
-			}
-		}
-		k=0;i=0;j=0;s=1;
-		while(1)
-		{
-			while(j<m-k)
-			{
-				a[i][j++]=s++;
-			}
-			j--;i++;
-			if(s>m*n)
-			{
-			break;
-			}
-			while(i<n-k)
-			{
-				a[i++][j]=s++;
-			}
-			i--;j--;
-			if(s>m*n)
-			{
-			break;
-			}
-			while(j>=k)
-			{
-				a[i][j--]=s++;
-			}
-			j++;i--;
-			if(s>m*n)
-			{
-			break;
-			}
-			while(i>=1+k)
-			{
-				a[i--][j]=s++;
-			}
-			k++;i=k;j=k;
-			if(s>m*n)
-			{
-			break;
-			}
-		}
-		for(i=0;i<n;i++)
-		{
-			for(j=0;j<m-1;j++)
-			{
-				printf("%2d ",a[i][j]);
-			}
-			printf("%2d\n",a[i][m-1]);
-		}
-	}
-	return 0;
+#include<iostream>
+using namespace std;
+int a[100][100];
+int dx[4]={0,1,0,-1};
+int dy[4]={1,0,-1,0};
+int main(){
+    int n,x=1,y=1,i=1,j=0,z=1;
+    cin>>n;
+    while(i++<=n*n)
+    {
+        a[x][y]=z;
+        if(a[x+dx[j]][y+dy[j]]||x+dx[j]>n||y+dy[j]<1||y+dy[j]>n)
+        {
+            j++;
+            if(j==4)j=0,z++;            
+        }
+        x+=dx[j],y+=dy[j]; 
+    }
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=n;j++)
+            cout<<a[i][j]<<' ';
+        cout<<endl;
+    }
+    return 0;
 }
